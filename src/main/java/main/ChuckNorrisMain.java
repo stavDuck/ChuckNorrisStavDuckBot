@@ -9,7 +9,9 @@ public class ChuckNorrisMain {
         try {
             TelegramBotsApi botsApi = new TelegramBotsApi(DefaultBotSession.class);
             botsApi.registerBot(new ChuckNorrisBot());
-        } catch (TelegramApiException e) {
+        }
+        //catch (TelegramApiException e) {
+        catch (Exception e){
             e.printStackTrace();
         }
     }

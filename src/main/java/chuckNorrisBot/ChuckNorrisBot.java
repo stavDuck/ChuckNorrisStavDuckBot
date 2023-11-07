@@ -217,7 +217,9 @@ public class ChuckNorrisBot extends TelegramLongPollingBot {
     private void sendMessage(SendMessage message) {
         try {
             execute(message);
-        } catch (TelegramApiException e) {
+        }
+        //catch (TelegramApiException e) {
+        catch (Exception e){
             e.printStackTrace();
         }
     }
