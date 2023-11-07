@@ -120,18 +120,32 @@
                     </goals>
                     <configuration>
                         <outputDirectory>${project.build.directory}/lib</outputDirectory>
-
-                        <overWriteReleases>false</overWriteReleases>
-                        <overWriteSnapshots>false</overWriteSnapshots>
-                        <overWriteIfNewer>true</overWriteIfNewer>
-                        <includeScope>runtime</includeScope>
-                        <excludeArtifactIds>azure-functions-java-library</excludeArtifactIds>
-
                     </configuration>
                 </execution>
             </executions>
             </plugin>
 
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.2.1</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <relocations>
+                                <relocation>
+                                    <pattern>org.telegram.telegrambots</pattern>
+                                    <shadedPattern>org.telegram.shaded.telegrambots</shadedPattern>
+                                </relocation>
+                            </relocations>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
 
         </plugins>
     </build>
