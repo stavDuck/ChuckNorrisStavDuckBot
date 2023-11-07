@@ -120,6 +120,13 @@
                     </goals>
                     <configuration>
                         <outputDirectory>${project.build.directory}/lib</outputDirectory>
+
+                        <overWriteReleases>false</overWriteReleases>
+                        <overWriteSnapshots>false</overWriteSnapshots>
+                        <overWriteIfNewer>true</overWriteIfNewer>
+                        <includeScope>runtime</includeScope>
+                        <excludeArtifactIds>azure-functions-java-library</excludeArtifactIds>
+
                     </configuration>
                 </execution>
             </executions>
