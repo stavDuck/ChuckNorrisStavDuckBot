@@ -21,7 +21,8 @@
         <dependency>
             <groupId>org.telegram</groupId>
             <artifactId>telegrambots</artifactId>
-            <version>5.1.1</version>
+           <version>5.1.1</version>
+            <!--<version>5.0.0</version>-->
         </dependency>
         <!-- https://mvnrepository.com/artifact/com.azure/azure-ai-translation-text -->
         <dependency>
@@ -95,6 +96,44 @@
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>3.6.0</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>main.ChuckNorrisMain</mainClass>
+                        </manifest>
+                    </archive>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                    <finalName>${artifactId}</finalName>
+                    <appendAssemblyId>false</appendAssemblyId>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>assemble-all</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+           <!-- <plugin>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.0.2</version>
+                <executions>
+                    <execution>
+                        <id>default-jar</id>
+                        <phase>none</phase>
+                    </execution>
+                </executions>
+            </plugin>-->
+
+
+         <!--   <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
                 <version>3.0.2</version>
 
@@ -102,19 +141,19 @@
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <classpathPrefix>lib/</classpathPrefix>
+                            &lt;!&ndash;<classpathPrefix>lib/</classpathPrefix>&ndash;&gt;
                             <mainClass>main.ChuckNorrisMain</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
-            </plugin>
-            <plugin>
+            </plugin>-->
+          <!--  <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
                 <version>3.6.1</version>                <executions>
                 <execution>
                     <id>copy-dependencies</id>
-                    <phase>prepare-package</phase> <!-- Adjust the phase as needed -->
+                    <phase>prepare-package</phase> &lt;!&ndash; Adjust the phase as needed &ndash;&gt;
                     <goals>
                         <goal>copy-dependencies</goal>
                     </goals>
@@ -123,9 +162,9 @@
                     </configuration>
                 </execution>
             </executions>
-            </plugin>
+            </plugin>-->
 
-            <plugin>
+           <!-- <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
                 <version>3.2.1</version>
@@ -145,7 +184,7 @@
                         </configuration>
                     </execution>
                 </executions>
-            </plugin>
+            </plugin>-->
 
         </plugins>
     </build>

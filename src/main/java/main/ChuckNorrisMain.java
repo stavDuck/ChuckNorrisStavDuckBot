@@ -7,6 +7,7 @@ import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
 public class ChuckNorrisMain {
     public static void main(String[] args) {
         try {
+            System.out.println("hello world");
             TelegramBotsApi botsApi = new TelegramBotsApi(DefaultBotSession.class);
             botsApi.registerBot(new ChuckNorrisBot());
         }
