@@ -20,8 +20,6 @@ import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.Keyboard
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardRow;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
-import java.io.*;
-import java.net.URL;
 import java.util.*;
 
 public class ChuckNorrisBot extends TelegramLongPollingBot {
@@ -53,7 +51,6 @@ public class ChuckNorrisBot extends TelegramLongPollingBot {
         // Try block to check exceptions
         try {
             document = Jsoup.connect(url).get();
-            //System.out.println(document.body().text());
         }
         // Catch block to handle exceptions
         catch (Exception ex) {
@@ -219,8 +216,7 @@ public class ChuckNorrisBot extends TelegramLongPollingBot {
         try {
             execute(message);
         }
-        //catch (TelegramApiException e) {
-        catch (Exception e){
+        catch (TelegramApiException e) {
             e.printStackTrace();
         }
     }
