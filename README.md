@@ -21,6 +21,7 @@ Additions:
 1) Support for emojis
 2) Two implemented commands (help and start)
 3) Added Recommendation for reply to "select language" (English/Hebrew/Russian)
+4) Supporting error handling by sending error messages back to user (invalid language, index out of bound etc..)
 
 Enjoy using my bot :)
 
